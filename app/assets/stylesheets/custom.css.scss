@@ -19,6 +19,10 @@ h2 {
 
 .nav-item {
 	list-style: none;
+	a {
+	color: #E3F2EB;
+	}
+	
 }
 
 .card {
@@ -31,5 +35,14 @@ h2 {
 
 
 .navbar-brand {
-	color: #295200!important;
+	color: #88d0ae!important;
+}
+
+.navbar-expand-lg {
+	background-color: #00472A;
+	border: 10px;
+}
+
+body {
+	background-color: #50b58a;	
 }

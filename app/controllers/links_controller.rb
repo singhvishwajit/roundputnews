@@ -4,7 +4,12 @@ class LinksController < ApplicationController
   # GET /links
   # GET /links.json
   def index
-    @links = Link.all
+    if params[:category].blank?
+      @links = Link.all.order("created_at DESC")
+    else
+      @category_id = Category.find_by(name: params[:category]).id
+      @links = Link.where(category_id: @category_id).order("created_at DESC")
+    end
   end
 
   # GET /links/1
@@ -69,6 +74,6 @@ class LinksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def link_params
-      params.require(:link).permit(:title, :url)
+      params.require(:link).permit(:title, :url, :category_id)
     end
 end
